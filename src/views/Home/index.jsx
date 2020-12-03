@@ -44,12 +44,12 @@ export default class Home extends Component {
                         </Flex.Item>
                         <Flex.Item style={{ flex: 8 }}>
                             <div className="home-order-list">
-                                {/* <OrderList /> */}
+                                <OrderList />
                             </div>
                         </Flex.Item>
                     </Flex>
                     <Flex>
-                        {/* <Account history={this.props.history} /> */}
+                        <Account history={this.props.history} />
                     </Flex>
                 </div>
             </WingBlank>

@@ -75,8 +75,8 @@ class Account extends Component {
     }
 
     render() {
-        const { data } = this.props;
-
+        // const { data } = this.props;
+        const data = [];
         const total = () => {
             let totalPrice = 0;
             data.forEach(item => {
@@ -94,7 +94,7 @@ class Account extends Component {
                         <span className='account__total'>共 ￥ {total()}</span>
                         <span className='account__submit' onClick={this.payPage.bind(this)}>去结算</span>
                     </div>
-                    <div className='account__list hidden' onClick={(e)=>{e.stopPropagation()}}>
+                    <div className='account__list hidden' onClick={(e) => { e.stopPropagation() }}>
                         <div className='account__content'>
                             <div className="account__food-list-title">
                                 <span>已选商品</span>

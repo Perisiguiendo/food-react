@@ -1,48 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { WhiteSpace } from 'antd-mobile';
-import { addItemCount, minusItemCount } from "../../action/action";
-import { getList } from '../../reducers/food.redux'
+import { getList, addItem, minusItem } from '../../reducers/food.redux'
 
 import './index.css'
 
 @connect(
   state => state.foodReducer,
-  { getList }
+  { getList, addItem, minusItem }
 )
-class ItemA extends Component {
+class OrderList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      checkedList: []
-    }
   }
 
   componentDidMount() {
-    // this.setState({
-    //   data: [...this.props.data]
-    // })
     this.props.getList();
   }
 
-  handleClick(item) {
-    this.setState({
-      checkedList: [...this.state.checkedList, item]
-    }, () => {
-      console.log('checkedList', this.state.checkedList);
-      this.props.sendAction();
-    })
-  }
-
-
   render() {
-    const { addHandleClick, minusHandleClick } = this.props;
+    const { food } = this.state;
+
     return (
       <div className='order-list'>
-        {this.props.data.map(item => {
+        {food.map((item, index) => {
           return (
-            <div className='order-food__wrap' key={item.food_id}>
+            <div className='order-food__wrap' key={item.food_id} id={`${item.food_type}_${index}`}>
               <div className='order-food__img-wrap'>
                 <img className='order-food__img' src={item.food_img} alt='pic' />
               </div>
@@ -58,39 +41,35 @@ class ItemA extends Component {
                       {
                         (item.food_count > 0)
                         &&
-                        <div style={{ height: '100%', display: 'flex', alignContent: 'space-around' }}>
-                          <span className='order-food__icon-minus iconfont' onClick={minusHandleClick.bind(this, item)}>&#xe68f;</span>
-                          <div style={{ height: '100%', width: '1rem', textAlign: 'center', lineHeight: '1.8rem', margin: '0 auto' }}>{item.food_count}</div>
-                        </div>
+                        (
+                          <div style={{ height: '100%', display: 'flex', alignContent: 'space-around' }}>
+                            <span
+                              className='order-food__icon-minus iconfont'
+                              onClick={() => this.props.minusItem(item)}
+                            >&#xe68f;</span>
+                            <div className='order-food_count'>{item.food_count}</div>
+                          </div>
+                        )
                       }
                     </div>
-                    <span className='order-food__icon-add iconfont' onClick={addHandleClick.bind(this, item)}>&#xe659;</span>
+                    <span
+                      className='order-food__icon-add iconfont'
+                      onClick={() => this.props.addItem(item)}
+                    >&#xe659;</span>
                   </div>
                 </div>
               </div>
             </div>
           )
         })}
+        <WhiteSpace />
+        <WhiteSpace />
+        <WhiteSpace />
+        <WhiteSpace />
+        <WhiteSpace />
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addHandleClick: (data) => dispatch(addItemCount(data)),
-    minusHandleClick: (data) => dispatch(minusItemCount(data))
-  }
-}
-
-const mapStateToProps = (state) => {
-  console.log('stateToProps', state);
-  return {
-    data: state.data
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ItemA);
+export default OrderList

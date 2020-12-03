@@ -8,23 +8,23 @@ import {
 } from './actionType';
 
 export function getFoodList(data) {
-    return { type: GET_LIST, data }
+    return { type: GET_LIST, payload: data }
 }
 
-export function getFoodCat(data){
-    return { type: GET_FOOD_CAT, data }
+export function getFoodCat(data) {
+    return { type: GET_FOOD_CAT, payload: data }
 }
 
 export function addItemCount(data) {
-    return { type: CART_ADD, data }
+    return { type: CART_ADD, payload: data }
 }
 
 export function minusItemCount(data) {
-    return { type: CART_MINUS, data }
+    return { type: CART_MINUS, payload: data }
 }
 
 export function clearItemCount(data) {
-    return { type: CART_CLEAR, data }
+    return { type: CART_CLEAR, payload: data }
 }
 
 export function errorMsg(msg) {

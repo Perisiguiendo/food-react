@@ -16,32 +16,18 @@ class Tab extends Component {
 
   render() {
     const { food_cat } = this.props;
-    const data =
-      [
-        {
-          "id": 1,
-          "food_cat_name": "肉类"
-        },
-        {
-          "id": 2,
-          "food_cat_name": "蔬菜类"
-        },
-        {
-          "id": 3,
-          "food_cat_name": "水果类"
-        },
-        {
-          "id": 4,
-          "food_cat_name": "套餐"
-        }
-      ]
     const tabs = [];
-    data.forEach((item) => {
+    food_cat.forEach((item) => {
       let obj = {};
       obj['key'] = item.id;
       obj['title'] = item.food_cat_name;
       tabs.push(obj)
     })
+
+    const renderTabBar = () => {
+
+    }
+
     return (
       <div style={{ height: 'calc(100vh -  8.4rem - 130px)', background: '#ffffff', width: 61 }}>
         <div style={{ height: 200 }}>
