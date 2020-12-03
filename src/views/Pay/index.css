@@ -1,0 +1,90 @@
+.pay__null {
+    width: 100%;
+    height: 3rem;
+    background: #ffffff;
+    color: #dddddd;
+    text-align: center;
+    line-height: 3rem;
+}
+
+.pay__list {
+    width: 100%;
+    background: #ffffff;
+    height: calc(100vh - 131px - 8rem);
+    overflow-y: scroll;
+}
+
+.pay__ordered {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pay__img-wrap, .pay__img {
+    width: 6rem;
+    height: 6rem;
+}
+
+.pay__img {
+    border-radius: 10px;
+}
+
+.pay__right {
+    width: 14rem;
+    height: 3rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.pay__ordered-name {
+    font-size: 1.2rem;
+}
+
+.pay__ordered-price {
+    font-size: 1.4rem;
+}
+
+.pay__ordered-count {
+    margin-left: 30px;
+    font-size: 1rem;
+}
+
+.pay__total {
+    width: 100%;
+    background: #ffffff;
+    height: 2.8rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.pay__to {
+    font-size: 1rem;
+}
+
+.pay__num {
+    font-size: 1.3rem;
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 2128708 */
+    src: url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.eot');
+    src: url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.woff2') format('woff2'), url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.woff') format('woff'), url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.ttf') format('truetype'), url('//at.alicdn.com/t/font_2128708_k6z59ow7f5e.svg#iconfont') format('svg');
+}

@@ -1,0 +1,161 @@
+.account__mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.account__wrap {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 4.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    height: 3.3rem;
+    background: #333333;
+    border-radius: 27px;
+    box-shadow: 2px 2px 5px #666666;
+    z-index: 3;
+}
+
+.account__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    background: linear-gradient(to bottom, #ffac26, #ff7e02);
+    border-radius: 50%;
+    transform: translateX(.2rem);
+    margin-right: .5rem;
+    color: #ffffff;
+}
+
+.minus {
+    background: #ffffff;
+    color: #ff7e02;
+    border: 1px solid #ffac26;
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    line-height: 19px;
+}
+
+.account__total {
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+.account__submit {
+    position: absolute;
+    right: -1px;
+    width: 7rem;
+    height: 3.3rem;
+    background: linear-gradient(to bottom, #ffac26, #ff7e02);
+    color: #ffffff;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 3.4rem;
+    border-radius: 28px;
+}
+
+.account__list {
+    position: fixed;
+    left: 50%;
+    margin-left: -10rem;
+    bottom: 6rem;
+    overflow: hidden;
+    z-index: 2;
+    /* visibility: hidden; */
+}
+
+.account__content {
+    width: 20rem;
+    height: 16rem;
+    overflow: hidden;
+    background: #ffffff;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+.show {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.account__food-list-title {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 40px;
+    background: #efefef;
+    color: #333333;
+    font-size: 1.4rem;
+}
+
+.account__food-list {
+    padding: 0 10px 80px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.account__ordered {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+.account__ordered-name {
+    font-size: 1.2rem;
+}
+.account__ordered-price {
+    font-size: 1.2rem;
+}
+.account__ordered-btn {
+    font-size: 1.1rem;
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 1.6rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.account__ordered-add {
+    color: #ff7e02;
+}
+
+.account__ordered-minus {
+    color: #ffac26;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 2128708 */
+    src: url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.eot');
+    src: url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2128708_nphqhjf8twc.svg#iconfont') format('svg');
+  }

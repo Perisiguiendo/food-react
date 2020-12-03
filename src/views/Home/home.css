@@ -1,0 +1,4 @@
+.home-order-list {
+    height: calc(100vh -  8.4rem - 130px);
+    overflow-y: scroll;
+}

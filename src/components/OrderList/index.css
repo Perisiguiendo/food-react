@@ -1,0 +1,62 @@
+.order-list {
+    overflow: scroll;
+}
+
+.order-food__wrap {
+    display: flex;
+    margin-top: 10px;
+    height: 5.8rem;
+}
+
+.order-food__img {
+    width: 85px;
+    height: 85px;
+    border-radius: 10px;
+}
+
+.order-food__ops {
+    height: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-food__icon-minus {
+    color: #ff7e02;
+}
+
+.order-food__icon-add {
+    display: inline-block;
+    width: 2rem;
+    color: #ffac26;
+}
+
+.order-food__ops-wrap {
+    width: 5rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-food__ops-left {
+    display: inline-block;
+    width: 4rem;
+    height: 100%;
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 3rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 2128708 */
+    src: url('//at.alicdn.com/t/font_2128708_7lflobifm4e.eot');
+    src: url('//at.alicdn.com/t/font_2128708_7lflobifm4e.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2128708_7lflobifm4e.woff2') format('woff2'), url('//at.alicdn.com/t/font_2128708_7lflobifm4e.woff') format('woff'), url('//at.alicdn.com/t/font_2128708_7lflobifm4e.ttf') format('truetype'), url('//at.alicdn.com/t/font_2128708_7lflobifm4e.svg#iconfont') format('svg');
+}
