@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Flex, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Flex, WingBlank } from 'antd-mobile';
 import Tab from '../../components/Tab';
-import Shop from '../../components/ProfileCard';
-import BCarousel from '../../components/Header';
 import OrderList from '../../components/OrderList'
 import Account from '../../components/Account';
 
 import './home.css'
 
 
-export default class Home extends Component {
+class Home extends Component {
 
     render() {
         return (
@@ -56,3 +54,5 @@ export default class Home extends Component {
         )
     }
 }
+
+export default Home

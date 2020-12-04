@@ -107,7 +107,7 @@
 }
 
 .account__food-list {
-    padding: 0 10px 80px 10px;
+    padding: 0 15px 80px 15px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -123,16 +123,13 @@
     border-bottom: 1px solid #dddddd;
 }
 
-.account__ordered-name {
-    font-size: 1.2rem;
-}
-
-.account__ordered-price {
+.account__ordered-name, .account__ordered-price, .account__ordered-btn {
     font-size: 1.2rem;
 }
 
 .account__ordered-btn {
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 .iconfont {

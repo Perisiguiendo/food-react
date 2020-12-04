@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import { connect } from 'react-redux'
 import { getCat } from '../../reducers/cat.redux'
 import './index.css'
@@ -23,10 +23,6 @@ class Tab extends Component {
       obj['title'] = item.food_cat_name;
       tabs.push(obj)
     })
-
-    const renderTabBar = () => {
-
-    }
 
     return (
       <div style={{ height: 'calc(100vh -  8.4rem - 130px)', background: '#ffffff', width: 61 }}>

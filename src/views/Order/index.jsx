@@ -1,42 +1,55 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { WingBlank, WhiteSpace } from 'antd-mobile'
+import './index.css'
 
 class Order extends Component {
-  render() {
-    return (
-      <div style={{
-        width: 190,
-        border: '1px solid #dddddd',
-        margin: 20
-      }}>
-        xxxxxxOrder
-        {/* {
-          this.props.data.map(item => {
-            return (
-              <div key={item.food_id}>
-                <div>
-                  <img style={{ width: 100, height: 50 }} src="https://tse2-mm.cn.bing.net/th/id/OIP.Tlumx9iXVC4rqPbISLZaRQHaF7?pid=Api&rs=1" alt='pic' />
-                  <br />
-                  <span>{item.food_name}</span>
-                  <br/>
-                  <span>{item.food_count}</span>
-                </div>
-              </div>
-            )
+  constructor(props) {
+    super(props);
+    this.state = {
+      orderedList: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('/orderdetail/details/?order=10')
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({
+            orderedList: [...this.state.orderedList, ...res.data]
           })
-        } */}
-      </div>
+        }
+      })
+  }
+
+  render() {
+    const { orderedList } = this.state;
+    return (
+      <WingBlank>
+        <WhiteSpace />
+        <WhiteSpace />
+        <div className='order__food-wrap'>
+          <WhiteSpace />
+          <WhiteSpace />
+          {
+            orderedList.map(item => {
+              return (
+                <div key={item.food_id}>
+                  <div className='order__ordered'>
+                    <span className="order__ordered-name">{item.food_name}</span>
+                    <span className="order__ordered-price">￥ {item.food_price}</span>
+                    <span className="order__ordered-count">x {item.counts}</span>
+                  </div>
+                  <WhiteSpace />
+                </div>
+              )
+            })
+          }
+          <WhiteSpace />
+        </div>
+      </WingBlank >
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('stateToProps', state);
-  return {
-    data: state.checkedList
-  };
-}
-
-export default connect(
-  mapStateToProps
-)(Order);
+export default Order

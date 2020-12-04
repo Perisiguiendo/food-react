@@ -10,8 +10,7 @@
 .pay__list {
     width: 100%;
     background: #ffffff;
-    height: calc(100vh - 131px - 8rem);
-    overflow-y: scroll;
+    height: 100%;
 }
 
 .pay__ordered {
@@ -71,6 +70,21 @@
 
 .pay__num {
     font-size: 1.3rem;
+}
+
+.pay__submit {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 3.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22rem;
+    height: 3.3rem;
+    background: #333333;
+    border-radius: 27px;
+    box-shadow: 2px 2px 5px #666666;
+    z-index: 3;
 }
 
 

@@ -24,7 +24,5 @@ export function getCat() {
                     dispatch(getFoodCat(res.data.results));
                 }
             })
-        
-
     }
 }

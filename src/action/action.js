@@ -4,7 +4,8 @@ import {
     CART_CLEAR,
     GET_LIST,
     GET_FOOD_CAT,
-    ERROR_MSG
+    ERROR_MSG,
+    SUBMIT_SUCCESS
 } from './actionType';
 
 export function getFoodList(data) {
@@ -29,4 +30,8 @@ export function clearItemCount(data) {
 
 export function errorMsg(msg) {
     return { msg, type: ERROR_MSG }
+}
+
+export function submitSuccess(data) {
+    return { type: SUBMIT_SUCCESS, payload: data }
 }

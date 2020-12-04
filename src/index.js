@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
 import { applyMiddleware, compose, createStore } from 'redux'
 
 import reducers from './store'

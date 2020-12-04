@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import './index.css';
-import { addItemCount, minusItemCount, clearItemCount } from "../../action/action";
-import { WingBlank } from 'antd-mobile';
+import { getList, addItem, minusItem } from '../../reducers/food.redux'
 
-
+@connect(
+    state => state.foodReducer,
+    { getList, addItem, minusItem }
+)
 class Account extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShow: false
+            isShow: false,
+            food: []
         }
     }
 
     showList = (e) => {
         e.stopPropagation();
-        console.log(this.state);
         const account = document.getElementById('account-list');
         const account__list = document.getElementsByClassName('account__list')[0];
         if (this.state.isShow) {
@@ -38,7 +41,6 @@ class Account extends Component {
     }
 
     handleClickBlankHiddenAccount() {
-        console.log('click window');
         const account = document.getElementById('account-list');
         const account__list = document.getElementsByClassName('account__list')[0];
         if (this.state.isShow) {
@@ -59,27 +61,28 @@ class Account extends Component {
         this.props.history.push('pay');
     }
 
-    clearClick(e) {
-        e.stopPropagation();
-        this.props.clearHandleClick(this.props.data);
-    }
+    // clearClick(e) {
+    //     e.stopPropagation();
+    //     this.props.clearHandleClick(this.props.data);
+    // }
 
     minusClick(item, event) {
         event.stopPropagation();
-        this.props.minusHandleClick(item);
+        this.props.minusItem(item);
     }
 
     addClick(item, event) {
         event.stopPropagation();
-        this.props.addHandleClick(item);
+        this.props.addItem(item);
     }
 
     render() {
-        // const { data } = this.props;
-        const data = [];
+        console.log('account-render');
+        const { food } = this.state;
+        let newList = food.filter(v => v.food_count > 0) // 过滤数量为0的数据
         const total = () => {
             let totalPrice = 0;
-            data.forEach(item => {
+            newList.forEach(item => {
                 totalPrice += parseFloat(item.food_price) * parseFloat(item.food_count);
             })
             return totalPrice.toFixed(2);
@@ -98,23 +101,21 @@ class Account extends Component {
                         <div className='account__content'>
                             <div className="account__food-list-title">
                                 <span>已选商品</span>
-                                <span className='iconfont' onClick={this.clearClick.bind(this)}>&#xe639;</span>
+                                {/* <span className='iconfont'>&#xe639;</span> */}
                             </div>
                             <div className="account__food-list">
                                 {
-                                    data.map(item => {
+                                    newList.map(item => {
                                         return (
-                                            <WingBlank>
-                                                <div key={item.food_id} className='account__ordered'>
-                                                    <span className="account__ordered-name">{item.food_name}</span>
-                                                    <span className="account__ordered-price">￥ {item.food_price}</span>
-                                                    <span className="account__ordered-btn">
-                                                        <span className='iconfont account__ordered-minus' onClick={this.minusClick.bind(this, item)}>&#xe68f;</span>
-                                                        <span style={{ lineHeight: '20px', margin: '0 10px' }}>{item.food_count}</span>
-                                                        <span className='iconfont account__ordered-add' onClick={this.addClick.bind(this, item)}>&#xe659;</span>
-                                                    </span>
-                                                </div>
-                                            </WingBlank>
+                                            <div key={item.food_id} className='account__ordered'>
+                                                <span className="account__ordered-name">{item.food_name}</span>
+                                                <span className="account__ordered-price">￥ {item.food_price}</span>
+                                                <span className="account__ordered-btn">
+                                                    <span className='iconfont account__ordered-minus' onClick={this.minusClick.bind(this, item)}>&#xe68f;</span>
+                                                    <span style={{ lineHeight: '22px', margin: '0 10px' }}>{item.food_count}</span>
+                                                    <span className='iconfont account__ordered-add' onClick={this.addClick.bind(this, item)}>&#xe659;</span>
+                                                </span>
+                                            </div>
                                         )
                                     })
                                 }
@@ -127,22 +128,4 @@ class Account extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addHandleClick: (data) => dispatch(addItemCount(data)),
-        minusHandleClick: (data) => dispatch(minusItemCount(data)),
-        clearHandleClick: (data) => dispatch(clearItemCount(data))
-    }
-}
-
-const mapStateToProps = (state) => {
-    console.log('stateToProps', state);
-    return {
-        data: state.checkedList
-    };
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Account);
+export default Account

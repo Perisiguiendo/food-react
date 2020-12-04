@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { getList } from '../../reducers/food.redux'
+import { connect } from 'react-redux'
 
 import NavLinkBar from '../NavLinkBar'
 import Home from '../../views/Home'
 import Order from '../../views/Order'
 import Pay from '../../views/Pay'
 
+@connect(
+    state => state.foodReducer,
+    { getList }
+)
 class DashBoard extends Component {
-    constructor(props) {
-        super(props);
+
+    componentDidMount() {
+        this.props.getList();
     }
 
     render() {
