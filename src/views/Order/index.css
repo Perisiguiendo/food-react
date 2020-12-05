@@ -1,5 +1,5 @@
 .order__food-wrap {
-    background: #f5f5f9;
+    background: #ffffff;
     border-radius: 8px;
     box-shadow: rgb(156, 156, 156) 0px 0px 10px;
 }
@@ -10,9 +10,35 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .order__line {
     border: 1px solid #f5f5f9;
+}
+
+.order__btn-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    height: 2rem;
+    padding: 15px 10px 0 10px;
+    font-size: 1.3rem;
+    border-top: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order__total {
+    color: #ff7200;
+}
+
+.order__submit{
+    border: none;
+    background: linear-gradient(to bottom, #ffac26, #ff7e02);
+    color: #ffffff;
+    font-size: 1rem;
+    height: 1.8rem;
+    width: 5.8rem;
+    border-radius: 10px;
 }

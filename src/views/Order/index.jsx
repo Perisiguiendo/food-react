@@ -12,7 +12,7 @@ class Order extends Component {
   }
 
   componentDidMount() {
-    axios.get('/orderdetail/details/?order=10')
+    axios.get('/orderdetail/details/?order=11')
       .then(res => {
         if (res.status === 200) {
           this.setState({
@@ -24,6 +24,14 @@ class Order extends Component {
 
   render() {
     const { orderedList } = this.state;
+    const total = () => {
+      let totalPrice = 0;
+      orderedList.forEach(v => {
+        totalPrice += v.counts * v.food_price;
+      })
+      return totalPrice.toFixed(2);
+    }
+
     return (
       <WingBlank>
         <WhiteSpace />
@@ -45,6 +53,11 @@ class Order extends Component {
               )
             })
           }
+          <div className='order__btn-wrap'>
+            <div>总金额：<span className='order__total'>￥{total()}</span></div>
+            <button className='order__submit'>再来一单</button>
+          </div>
+          <WhiteSpace />
           <WhiteSpace />
         </div>
       </WingBlank >

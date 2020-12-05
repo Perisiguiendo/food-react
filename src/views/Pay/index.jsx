@@ -20,9 +20,9 @@ class Pay extends Component {
 
     submit(order, foods) {
         if (foods.length > 0) {
-            axios.post('/orderdetailll', {
-                order,
-                foods
+            axios.post('/orderdetail/', {
+                "order": order,
+                "foods": foods
             })
                 .then(res => {
                     if (res.status === 200) {
@@ -51,7 +51,7 @@ class Pay extends Component {
         newList.forEach(v => {
             let temp = {};
             temp.food_id = v.food_id;
-            temp.food_count = v.food_count;
+            temp.counts = v.food_count;
             foods.push(temp);
             totalPrice += v.food_price * v.food_count;
         })
@@ -138,9 +138,9 @@ class Pay extends Component {
                             <WhiteSpace />
                             <WhiteSpace />
                             <div className='pay__submit'>
-                                <span className='account__icon iconfont'>&#xe602;</span>
+                                <span className='account__icon iconfont'>&#xe600;</span>
                                 <span className='account__total'>共 ￥ {totalPrice.toFixed(2)}</span>
-                                <span className='account__submit' onClick={() => this.submit({ order: 1 }, foods)}>提交</span>
+                                <span className='account__submit' onClick={() => this.submit(11, foods)}>提交</span>
                             </div>
                         </div>
                     </Flex.Item>

@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { addItem, minusItem } from '../../reducers/food.redux'
 import './index.css';
-import { getList, addItem, minusItem } from '../../reducers/food.redux'
 
 @connect(
     state => state.foodReducer,
-    { getList, addItem, minusItem }
+    { addItem, minusItem }
 )
 class Account extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isShow: false,
+            totalPrice: 0,
             food: []
         }
     }
@@ -66,19 +67,24 @@ class Account extends Component {
     //     this.props.clearHandleClick(this.props.data);
     // }
 
-    minusClick(item, event) {
+    minusClick(data, event) {
         event.stopPropagation();
-        this.props.minusItem(item);
+        this.props.minusItem(data);
+        this.setState({
+            temp: 0
+        })
     }
 
-    addClick(item, event) {
+    addClick(data, event) {
         event.stopPropagation();
-        this.props.addItem(item);
+        this.props.addItem(data);
+        this.setState({
+            temp: 0
+        })
     }
 
     render() {
-        console.log('account-render');
-        const { food } = this.state;
+        const { food } = this.props;
         let newList = food.filter(v => v.food_count > 0) // 过滤数量为0的数据
         const total = () => {
             let totalPrice = 0;
@@ -87,7 +93,6 @@ class Account extends Component {
             })
             return totalPrice.toFixed(2);
         }
-
         return (
             <div>
                 <div id="account-list" onClick={this.handleClickBlankHiddenAccount.bind(this)}></div>
@@ -129,3 +134,4 @@ class Account extends Component {
 }
 
 export default Account
+

@@ -11,33 +11,36 @@ const initFoodState = {
 export const foodReducer = (state = initFoodState, action) => {
     let data = action.payload;
     console.log('action', action);
+    let newList = JSON.parse(JSON.stringify(state))
     switch (action.type) {
         case GET_LIST:
             data.forEach(v => {
                 v.food_count = 0;
             })
-            return { ...state, food: data }
+            return { ...newList, food: data }
         case CART_ADD:
-            state.food.forEach(item => {
+            newList.food.forEach(item => {
                 if (item.food_id === data.food_id) {
                     item.food_count += 1;
                 }
+                // state.totalPrice += parseFloat(item.food_count) * parseFloat(item.food_price);
             })
-            return { ...state, food: state.food };
+            return newList;
         case CART_MINUS:
-            state.food.forEach(item => {
+            newList.food.forEach(item => {
                 if (item.food_id === data.food_id) {
                     item.food_count -= 1;
                 }
+                // state.totalPrice -= item.foods_count * item.food_price;
             })
-            return { ...state };
+            return newList;
         case CART_CLEAR:
-        // newState.data.forEach(item => {
-        //     item.food_count = 0;
-        // })
-        // newState.checkedList.splice(0, newState.checkedList.length);
-        // console.log(newState);
-        return {...state};
+            // newState.data.forEach(item => {
+            //     item.food_count = 0;
+            // })
+            // newState.checkedList.splice(0, newState.checkedList.length);
+            // console.log(newState);
+            return { ...state };
         default:
             return state;
     }

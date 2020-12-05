@@ -14,6 +14,10 @@ class Tab extends Component {
     this.props.getCat();
   }
 
+  toLocation(index) {
+    console.log('index');
+  }
+
   render() {
     const { food_cat } = this.props;
     const tabs = [];
@@ -33,6 +37,9 @@ class Tab extends Component {
             tabDirection="vertical"
             tabBarActiveTextColor="#ff7e02"
             tabBarUnderlineStyle={{ color: '#ff7e02' }}
+            onTabClick={(obj, index) => {
+              this.toLocation(index)
+            }}
           >
           </Tabs>
         </div>
